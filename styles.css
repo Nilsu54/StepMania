@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap");
+
+body {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image:url(img/fondo1.gif);
+}
+
+
+h1 {
+    font-family: "Nabla";
+    padding: 5px 10px;
+    font-size: 100px;
+
+
+}
+
+
+
+.Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+    margin-top: -50px;
+}
+
+.div-form {
+    display: flexbox;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titulo_cancion {
+    color: #00cfff;
+}
+
+.btn-jugar {
+    color: #00cfff;
+    font-family: 'Handjet';
+    padding: 5px 50px;
+    font-size: 50px;
+    border: 4px ridge #FF00FF;
+    background-color: #000000bf;
+    padding: 10px 150px;
+    cursor: pointer;
+}
+
+.btn-jugar:hover,
+.btn-rosa:hover,
+.btn-salir:hover,
+.button:hover {
+    color: #FF00FF;
+    border: 4px ridge #00cfff;
+    font-size: 55px;
+}
+
+.btn-salir {
+    color: #00cfff;
+    font-family: 'Handjet';
+    font-size: 50px;
+    border: 4px ridge #FF00FF;
+    background-color: #000000bf;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.btn-rosa {
+    color: #00cfff;
+    font-family: 'Handjet';
+    padding: 5px 50px;
+    font-size: 50px;
+    border: 4px ridge #FF00FF;
+    background-color: #000000bf;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Handjet';
+    padding: 5px 10px;
+    font-size: 50px;
+    border: 4px ridge #FF00FF;
+    background-color: #000000;
+    padding: 10px 50px;
+    color: #FF00FF;
+    cursor: pointer;
+}
+
+.añadir-cancion-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.753);
+    padding: 20px;
+    border: 4px ridge #FF00FF;
+    width: 50%;
+    margin: 20px auto;
+    font-family: 'Handjet';
+    color: #00cfff;
+    gap: 5px;
+}
+
+.añadir-cancion-form h2 {
+    font-family: "Nabla";
+    font-size: 40px;
+    color: #FF00FF;
+    margin-bottom: -10px;
+    margin-top: -10px;
+}
+
+.añadir-cancion-form label {
+    font-size: 25px;
+    color: #00cfff;
+    margin-bottom: 5px;
+}
+
+.añadir-cancion-form input {
+    font-family: 'Handjet';
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border: 2px solid #FF00FF;
+    background-color: #000000;
+    color: #00cfff;
+}
+
+.btn-enviar {
+    color: #00cfff;
+    font-family: 'Handjet';
+    padding: 10px 40px;
+    font-size: 30px;
+    border: 3px solid #FF00FF;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    color: #FF00FF;
+    border: 3px solid #00cfff;
+}
+
+.btn-enviar:hover {
+    color: #00cfff;
+    font-family: 'Handjet';
+    font-size: 30px;
+    border: 3px ridge #FF00FF;
+    background-color: #000000bf;
+    cursor: pointer;
+}
+
+.img-flecha {
+    width: 45px;
+    height: auto;
+}
+
+.btn-back {
+    background-color: #0000008e;
+    padding: 5px 50px;
+
+
+}
+
+.div-atras {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+
+::
+.btn-back:hover,
+.btn-enviar:hover {
+    color: #FF00FF;
+    border: 3px ridge #00cfff;
+}
+
+.btn-back {
+    border: 3px ridge #FF00FF;
+
+}
+
+.titulo-form {
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    top: -50px;
+    font-family: "Nabla";
+    font-size: 50px;
+    color: #FF00FF;
+    margin-bottom: 20px;
+}
+
+
+/* PAGINA CLASIFICACIÓN*/
+.titulo-clas {
+    font-family: 'Nabla';
+    width: 100%;
+    font-size: 75px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -20px;
+}
+
+.ul-clas {
+    background-color: #000000bf;
+    border: 3px ridge #FF00FF;
+    font-family: 'Handjet';
+    font-size: 35px;
+    color: #00cfff;
+    width: 50%;
+    position: relative;
+    margin-left: 25%;
+    list-style: none;
+    padding: 0;
+}
+
+.ul-clas li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.nombre-clas {
+    text-align: left;
+}
+
+.pts-clas {
+    text-align: right;
+    min-width: 50px;
+}
+
+/* PAGINA PREJUEGO*/
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.titulo-header {
+    margin: 0;
+    font-size: 50px;
+}
+
+
+.contenedor-bloques {
+    display: flex;
+    justify-content: space-between; 
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box; 
+    height:100%;
+}
+
+.bloque-izquierda {
+    width: 60%;
+    background-color: #000000bf;
+    border: 3px ridge #FF00FF;
+    font-family: 'Handjet';
+    font-size: 35px;
+    color: #00cfff;
+    height:100%;
+}
+
+.bloque-derecha {
+    width: 40%;
+    background-color: #000000bf;
+    border: 3px ridge #FF00FF;
+    font-family: 'Handjet';
+    font-size: 35px;
+    color: #00cfff;
+    height: 100%;
+}
+.lista-canciones li {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+
+.img-cancion {
+    width: 50px; 
+    height: 50px;
+    margin-right: 10px; 
+    border: 3px solid white; 
+    border-radius: 5px; 
+}
+
+.titulo-cancion {
+    font-size: 1.2em; 
+    color: #00cfff; 
+    line-height: 1; 
+}
+
+/* fondos*/
+
+.dropdown {
+    position: absolute;
+    top: 20px;
+    left: 90%;
+}
+
+.dropbtn {
+    background-color: #000000bf;
+    color: #00cfff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 4px ridge #FF00FF;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000bf;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 3px ridge #FF00FF;
+}
+
+.dropdown-content a {
+    color: #00cfff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #FF00FF;
+   
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+body.fondo1 {
+    background-image: url('img/fondo1.gif');
+}
+
+body.fondo2 {
+    background-image: url('img/fondo2.gif');
+}
+
+body.fondo3 {
+    background-image: url('img/fondo3.gif');
+}
+
+body.fondo4 {
+    background-image: url('img/fondo4.gif');
+}
+
+body.fondo5 {
+    background-image: url('img/fondo5.gif');
+}
+
+body.fondo6 {
+    background-image: url('img/fondo6.gif');
+}
+
+body.fondo7 {
+    background-image: url('img/fondo7.gif');
+}
+
+body.fondo8 {
+    background-image: url('img/fondo8.gif');
+}
+
+body.fondo9 {
+    background-image: url('img/fondo9.gif');
+}
+
+body.fondo10 {
+    background-image: url('img/fondo10.gif');
+}
