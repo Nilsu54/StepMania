@@ -1,10 +1,10 @@
 function changeBackground(fondo) {
     // Quitar clases de fondo existentes
     document.body.classList.remove('fondo1', 'fondo2', 'fondo3', 'fondo4', 'fondo5', 'fondo6', 'fondo7', 'fondo8', 'fondo9', 'fondo10');
-    
+
     // Añadir la clase del fondo seleccionado
     document.body.classList.add(fondo);
-    
+
     // Guardar el fondo seleccionado en localStorage
     localStorage.setItem('fondoSeleccionado', fondo);
 }

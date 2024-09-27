@@ -15,7 +15,7 @@
     <h2 class="titulo-clas">CLASSIFICACIÓN</h2>
 
     <div class="dropdown">
-        <button class="dropbtn">Cambiar Fondo</button>
+        <button class="dropbtn">Fondo</button>
         <div class="dropdown-content">
             <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a>
             <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a>
@@ -31,7 +31,7 @@
     </div>
     <div class="div-atras">
         <button class="btn-back" onclick="window.location.href='index.html';">
-            <img class="img-flecha" src="/img/flecha.png">
+            Atrás
         </button>
     </div>
     <div class="div-clas">

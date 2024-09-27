@@ -7,7 +7,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    background-image:url(img/fondo1.gif);
+    background-image: url(img/fondo1.gif);
 }
 
 
@@ -32,6 +32,7 @@ h1 {
 }
 
 .div-form {
+    margin-top: -3%;
     display: flexbox;
     justify-content: space-between;
     align-items: center;
@@ -60,6 +61,11 @@ h1 {
     color: #FF00FF;
     border: 4px ridge #00cfff;
     font-size: 55px;
+}
+
+.titulo-form {
+    font-family: 'Handjet';
+    text-align: center;
 }
 
 .btn-salir {
@@ -164,12 +170,7 @@ button {
     height: auto;
 }
 
-.btn-back {
-    background-color: #0000008e;
-    padding: 5px 50px;
 
-
-}
 
 .div-atras {
     position: absolute;
@@ -178,17 +179,14 @@ button {
 }
 
 
-::
-.btn-back:hover,
+
+
 .btn-enviar:hover {
     color: #FF00FF;
     border: 3px ridge #00cfff;
 }
 
-.btn-back {
-    border: 3px ridge #FF00FF;
 
-}
 
 .titulo-form {
     text-align: center;
@@ -232,6 +230,8 @@ button {
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
+    border: 1px solid #FF00FF;
+
 }
 
 .nombre-clas {
@@ -257,66 +257,144 @@ button {
 
 .contenedor-bloques {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     gap: 10px;
     width: 100%;
-    box-sizing: border-box; 
-    height:100%;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .bloque-izquierda {
-    width: 60%;
+    width: 70%;
+    
     background-color: #000000bf;
     border: 3px ridge #FF00FF;
     font-family: 'Handjet';
     font-size: 35px;
     color: #00cfff;
-    height:100%;
+    
 }
 
 .bloque-derecha {
-    width: 40%;
+    width: 30%;
     background-color: #000000bf;
     border: 3px ridge #FF00FF;
     font-family: 'Handjet';
-    font-size: 35px;
+    font-size: 50px;
     color: #00cfff;
-    height: 100%;
+    
 }
+
 .lista-canciones li {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 15px; 
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 15px;
 }
 
 .img-cancion {
-    width: 50px; 
-    height: 50px;
-    margin-right: 10px; 
-    border: 3px solid white; 
-    border-radius: 5px; 
+    width: 15%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 5%;
+
 }
 
-.titulo-cancion {
-    font-size: 1.2em; 
-    color: #00cfff; 
-    line-height: 1; 
+.portada-cancion {
+    display: flex;
+    height: 100%;
+}
+
+.bloque-izquierda {
+    background-color: #000000bf;
+    border: 3px ridge #FF00FF;
+}
+
+.img-portada {
+   
+    height: 40%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 8px solid white;
+    align-items: center;
+    align-self: center;
+    margin-left: 5%;
+}
+
+.opciones-cancion {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.titulo-cancion-grande {
+    font-size: 100px;
+    text-align: center;
+
+}
+
+.artista-cancion {
+    font-size: 50px;
+    text-align: center;
+}
+
+.info-cancion {
+    align-items: center;
+    width: 100%;
+    align-self: center;
+}
+
+.btn-opcion {
+    color: #00cfff;
+    font-family: 'Handjet';
+    border: 3px ridge #FF00FF;
+    background-color: #000000bf;
+    cursor: pointer;
+}
+
+.btn-opcion:hover {
+    color: #FF00FF;
+    font-family: 'Handjet';
+    border: 3px ridge #00cfff;
+    background-color: #000000bf;
+    cursor: pointer;
 }
 
 /* fondos*/
 
 .dropdown {
     position: absolute;
-    top: 20px;
-    left: 90%;
+    top: 10px;
+    right: 120px;
+
 }
 
 .dropbtn {
+    position: absolute;
+    top: 10px;
+
+}
+
+.dropbtn,
+.btn-back {
     background-color: #000000bf;
     color: #00cfff;
     padding: 10px 20px;
     font-size: 20px;
-    border: 4px ridge #FF00FF;
+    cursor: pointer;
+    border: 3px ridge #FF00FF;
+
+}
+
+.dropbtn:hover,
+.btn-back:hover {
+    background-color: #000000bf;
+    color: #FF00FF;
+    border: 3px ridge #00cfff;
+    padding: 10px 20px;
+    
     cursor: pointer;
 }
 
@@ -324,22 +402,25 @@ button {
     display: none;
     position: absolute;
     background-color: #000000bf;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border: 3px ridge #FF00FF;
+    margin-top: 57px;
 }
 
 .dropdown-content a {
-    color: #00cfff;
-    padding: 12px 16px;
+    font-family: 'Handjet';
     text-decoration: none;
+    color: #00cfff;
+    padding: 10px 20PX;
     display: block;
+    border: 2px ridge #FF00FF;
+  
+
 }
 
 .dropdown-content a:hover {
     color: #FF00FF;
-   
+    border: 2px ridge #00cfff;
+
 }
 
 .dropdown:hover .dropdown-content {

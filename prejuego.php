@@ -14,7 +14,7 @@
 <body>
 
     <div class="dropdown">
-        <button class="dropbtn">Cambiar Fondo</button>
+        <button class="dropbtn">Fondo</button>
         <div class="dropdown-content">
             <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a>
             <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a>
@@ -30,15 +30,26 @@
     </div>
     <div class="div-atras">
         <button class="btn-back" onclick="window.location.href='index.html';">
-            <img class="img-flecha" src="/img/flecha.png">
+            Atrás
         </button>
     </div>
     <header class="header">
         <h1 class="titulo-header">ELIGE UNA CANCIÓN</h1>
     </header>
     <div class="contenedor-bloques">
-        <div class="bloque bloque-izquierda">
-            izquierda
+        <div class="bloque-izquierda">
+
+            <div class="portada-cancion">
+                <img src="img/cancion1.jfif" alt="Portada Canción" class="img-portada">
+
+                <div class="info-cancion">
+                    <h2 class="titulo-cancion-grande">Molta Tralla</h2>
+                    <p class="artista-cancion">Autista: Oques Grasses</p>
+                </div>
+
+            </div>
+
+
         </div>
         <div class="bloque bloque-derecha">
             <ul class="lista-canciones">
@@ -50,11 +61,34 @@
                     <img src="img/cancion2.jfif" alt="Canción 1" class="img-cancion">
                     <span class="titulo-cancion">Memorias</span>
                 </li>
+                <li>
+                    <img src="img/cancion3.jfif" alt="Canción 1" class="img-cancion">
+                    <span class="titulo-cancion">Do I Wanna Know?</span>
+                </li>
+                <li>
+                    <img src="img/cancion4.jfif" alt="Canción 1" class="img-cancion">
+                    <span class="titulo-cancion">Meet Me halfway</span>
+                </li>
+                <li>
+                    <img src="img/cancion5.jfif" alt="Canción 1" class="img-cancion">
+                    <span class="titulo-cancion">Start Me Up</span>
+                </li>
+                
+
             </ul>
         </div>
     </div>
 
     <script src="javascript.js"></script>
+    <footer>
+
+        <div class="opciones-cancion">
+            <button class="btn-opcion">Jugar</button>
+            <button class="btn-opcion">Editar</button>
+            <button class="btn-opcion">Eliminar</button>
+        </div>
+
+    </footer>
 </body>
 
 </html>
