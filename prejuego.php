@@ -53,26 +53,6 @@
         </div>
         <div class="bloque bloque-derecha">
             <ul class="lista-canciones">
-                <li>
-                    <img src="img/cancion1.jfif" alt="Canción 1" class="img-cancion">
-                    <span class="titulo-cancion">Molta tralla</span>
-                </li>
-                <li>
-                    <img src="img/cancion2.jfif" alt="Canción 1" class="img-cancion">
-                    <span class="titulo-cancion">Memorias</span>
-                </li>
-                <li>
-                    <img src="img/cancion3.jfif" alt="Canción 1" class="img-cancion">
-                    <span class="titulo-cancion">Do I Wanna Know?</span>
-                </li>
-                <li>
-                    <img src="img/cancion4.jfif" alt="Canción 1" class="img-cancion">
-                    <span class="titulo-cancion">Meet Me halfway</span>
-                </li>
-                <li>
-                    <img src="img/cancion5.jfif" alt="Canción 1" class="img-cancion">
-                    <span class="titulo-cancion">Start Me Up</span>
-                </li>
                 
 
             </ul>
@@ -89,6 +69,26 @@
         </div>
 
     </footer>
+
+        <script>
+// Leer canciones desde el archivo JSON y mostrarlas en la lista de la derecha
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+        const listaCanciones = document.querySelector('.lista-canciones');
+        listaCanciones.innerHTML = '';  // Limpiar la lista antes de añadir canciones
+
+        data.forEach(cancion => {
+            // Crear un nuevo elemento <li> para cada canción
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <img src="uploads/${cancion['Foto cancion']}" alt="${cancion.titulo_cancion}" class="img-cancion">
+                <span class="titulo-cancion">${cancion.titulo_cancion}</span>
+            `;
+            listaCanciones.appendChild(li);
+        });
+    })
+    </script>
 </body>
 
 </html>

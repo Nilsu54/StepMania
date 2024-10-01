@@ -346,6 +346,15 @@ button {
     align-self: center;
 }
 
+
+#arxivo_cancion{
+    color: #00cfff;
+    font-family: 'Handjet';
+    border: 3px ridge #FF00FF;
+    background-color: #000000bf;
+    cursor: pointer;
+}
+
 .btn-opcion {
     color: #00cfff;
     font-family: 'Handjet';
