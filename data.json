@@ -7,10 +7,24 @@
         "Cancion": "OQUES GRASSES - MOLTA TRALLA.mp3"
     },
     {
-        "titulo_cancion": "memorias",
+        "titulo_cancion": "Memorias",
         "Artista": "Mora",
         "Foto cancion": "cancion2.jfif",
         "txt juego": "prova.txt.txt",
         "Cancion": "Mora, Jhay Cortez - MEMORIAS.mp3"
+    },
+    {
+        "titulo_cancion": "Start me up",
+        "Artista": "Rolling Sthones",
+        "Foto cancion": "cancion5.jfif",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "The Rolling Stones - Start Me Up - Official Promo.mp3"
+    },
+    {
+        "titulo_cancion": "Meet Me Halfway",
+        "Artista": "The Black Eyed Peas",
+        "Foto cancion": "cancion4.jfif",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "The Black Eyed Peas - Meet Me Halfway (Official Music Video).mp3"
     }
 ]

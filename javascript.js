@@ -22,3 +22,9 @@ function aplicarFondoGuardado() {
 
 // Llamar a la función al cargar la página
 window.onload = aplicarFondoGuardado;
+
+function playSong(mp3File) {
+    console.log("Reproduciendo:", mp3File);
+    const audio = new Audio(`uploads/${mp3File}`);
+    audio.play();
+}

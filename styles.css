@@ -282,23 +282,27 @@ button {
     font-family: 'Handjet';
     font-size: 50px;
     color: #00cfff;
+    height:30vi;  
+    overflow-y: scroll;
+    overflow-x: hidden;
     
 }
 
 .lista-canciones li {
-    display: flex;
-    align-items: center;
-    text-align: center;
-
+    display: flexbox;
+    align-items: start;
+    text-align: start;
     margin-bottom: 15px;
+    list-style: none;
 }
 
 .img-cancion {
-    width: 15%;
+    width: 45px;
+    height: 45px;
     object-fit: cover;
     border-radius: 10px;
     border: 3px solid white;
-    margin-right: 5%;
+    margin-right: 10%;
 
 }
 
@@ -314,7 +318,8 @@ button {
 
 .img-portada {
    
-    height: 40%;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
     border-radius: 10px;
     border: 8px solid white;
@@ -370,7 +375,14 @@ button {
     background-color: #000000bf;
     cursor: pointer;
 }
+a{
+     color: #00cfff;
+     text-decoration: none;
 
+}
+a:hover{
+    color:#FF00FF
+}
 /* fondos*/
 
 .dropdown {
