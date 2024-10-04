@@ -28,7 +28,6 @@ h1 {
     align-items: center;
     height: 100vh;
     gap: 10px;
-    margin-top: -50px;
 }
 
 .div-form {
@@ -37,6 +36,19 @@ h1 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+textarea {
+    font-family: 'Handjet';
+    width: 100%;
+    height: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border: 2px solid #FF00FF;
+    background-color: #000000;
+    color: #00cfff;
+    cursor: pointer;
 }
 
 .titulo_cancion {
@@ -133,7 +145,7 @@ button {
 .añadir-cancion-form input {
     font-family: 'Handjet';
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
     font-size: 18px;
     border: 2px solid #FF00FF;
@@ -144,7 +156,7 @@ button {
 .btn-enviar {
     color: #00cfff;
     font-family: 'Handjet';
-    padding: 10px 40px;
+    padding: 5px 20px;
     font-size: 30px;
     border: 3px solid #FF00FF;
     background-color: #000000;
@@ -250,8 +262,9 @@ button {
 }
 
 .titulo-header {
+    margin-top: -40px;
     margin: 0;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 
@@ -266,13 +279,13 @@ button {
 
 .bloque-izquierda {
     width: 70%;
-    
+
     background-color: #000000bf;
     border: 3px ridge #FF00FF;
     font-family: 'Handjet';
     font-size: 35px;
     color: #00cfff;
-    
+
 }
 
 .bloque-derecha {
@@ -282,10 +295,10 @@ button {
     font-family: 'Handjet';
     font-size: 50px;
     color: #00cfff;
-    height:30vi;  
-    overflow-y: scroll;
+    height: 500px;
+    overflow-y: auto;
     overflow-x: hidden;
-    
+
 }
 
 .lista-canciones li {
@@ -317,7 +330,7 @@ button {
 }
 
 .img-portada {
-   
+
     height: 200px;
     width: 200px;
     object-fit: cover;
@@ -340,6 +353,10 @@ button {
 
 }
 
+.titulo-cancion {
+    font-size: 40px;
+}
+
 .artista-cancion {
     font-size: 50px;
     text-align: center;
@@ -352,7 +369,7 @@ button {
 }
 
 
-#arxivo_cancion{
+#arxivo_cancion {
     color: #00cfff;
     font-family: 'Handjet';
     border: 3px ridge #FF00FF;
@@ -375,14 +392,17 @@ button {
     background-color: #000000bf;
     cursor: pointer;
 }
-a{
-     color: #00cfff;
-     text-decoration: none;
+
+a {
+    color: #00cfff;
+    text-decoration: none;
 
 }
-a:hover{
-    color:#FF00FF
+
+a:hover {
+    color: #FF00FF
 }
+
 /* fondos*/
 
 .dropdown {
@@ -415,7 +435,7 @@ a:hover{
     color: #FF00FF;
     border: 3px ridge #00cfff;
     padding: 10px 20px;
-    
+
     cursor: pointer;
 }
 
@@ -434,7 +454,7 @@ a:hover{
     padding: 10px 20PX;
     display: block;
     border: 2px ridge #FF00FF;
-  
+
 
 }
 

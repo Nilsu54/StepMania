@@ -28,3 +28,4 @@ function playSong(mp3File) {
     const audio = new Audio(`uploads/${mp3File}`);
     audio.play();
 }
+
