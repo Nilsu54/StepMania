@@ -1,5 +1,6 @@
 [
     {
+        "ID": "1670005ebc5489",
         "titulo_cancion": "Molta tralla",
         "Artista": "Oques Grasses",
         "Foto cancion": "cancion1.jfif",
@@ -7,21 +8,8 @@
         "Cancion": "OQUES GRASSES - MOLTA TRALLA.mp3"
     },
     {
-        "titulo_cancion": "Memorias",
-        "Artista": "Mora",
-        "Foto cancion": "cancion2.jfif",
-        "txt juego": "prova.txt.txt",
-        "Cancion": "Mora, Jhay Cortez - MEMORIAS.mp3"
-    },
-    {
-        "titulo_cancion": "Start me up",
-        "Artista": "Rolling Sthones",
-        "Foto cancion": "cancion5.jfif",
-        "txt juego": "prova.txt.txt",
-        "Cancion": "The Rolling Stones - Start Me Up - Official Promo.mp3"
-    },
-    {
-        "titulo_cancion": "Meet Me Halfway",
+        "ID": "1670006432dff3",
+        "titulo_cancion": "Meet me halfway",
         "Artista": "The Black Eyed Peas",
         "Foto cancion": "cancion4.jfif",
         "txt juego": "prova.txt.txt",

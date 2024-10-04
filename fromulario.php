@@ -131,6 +131,7 @@ if (
     // Si los archivos se mueven correctamente a la carpeta "uploads", continúa
     // Crear un nuevo array con los datos del formulario
     $Canço = [
+        "ID"=> uniqid(prefix: number_format(true)),
         "titulo_cancion" => $_POST["titulo_cancion"], // Almacena el título de la canción
         "Artista" => $_POST["artista_cancion"],       // Almacena el nombre del artista
         "Foto cancion" => $foto_cancion,              // Almacena el nombre del archivo de la foto

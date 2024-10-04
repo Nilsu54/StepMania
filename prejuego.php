@@ -61,8 +61,8 @@
 
     <footer>
         <div class="opciones-cancion"> <!-- Contenedor para las opciones de la canción -->
-            <button class="btn-opcion">Jugar</button> <!-- Botón para iniciar el juego -->
-            <button class="btn-opcion">Editar</button> <!-- Botón para editar la canción -->
+            <button class="btn-opcion" onclick="window.location.href='juego.php'"> Jugar</button> <!-- Botón para iniciar el juego -->
+            <button class="btn-opcion" onclick="editarCancion()">Editar</button> <!-- Botón para editar la canción -->
             <button class="btn-opcion" onclick="eliminarCancion()">Eliminar</button> <!-- Botón para eliminar la canción -->
         </div>
     </footer>
