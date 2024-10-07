@@ -14,108 +14,139 @@
     <div class="dropdown"> <!-- Contenedor para el menú desplegable de fondos -->
         <button class="dropbtn">Fondo</button> <!-- Botón que muestra el menú de selección de fondo -->
         <div class="dropdown-content"> <!-- Contenido del menú desplegable -->
-            <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a> <!-- Enlace que cambia el fondo a 'fondo1' -->
-            <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a> <!-- Enlace que cambia el fondo a 'fondo2' -->
-            <a href="#" onclick="changeBackground('fondo3')">Fondo 3</a> <!-- Enlace que cambia el fondo a 'fondo3' -->
-            <a href="#" onclick="changeBackground('fondo4')">Fondo 4</a> <!-- Enlace que cambia el fondo a 'fondo4' -->
-            <a href="#" onclick="changeBackground('fondo5')">Fondo 5</a> <!-- Enlace que cambia el fondo a 'fondo5' -->
-            <a href="#" onclick="changeBackground('fondo6')">Fondo 6</a> <!-- Enlace que cambia el fondo a 'fondo6' -->
-            <a href="#" onclick="changeBackground('fondo7')">Fondo 7</a> <!-- Enlace que cambia el fondo a 'fondo7' -->
-            <a href="#" onclick="changeBackground('fondo8')">Fondo 8</a> <!-- Enlace que cambia el fondo a 'fondo8' -->
-            <a href="#" onclick="changeBackground('fondo9')">Fondo 9</a> <!-- Enlace que cambia el fondo a 'fondo9' -->
-            <a href="#" onclick="changeBackground('fondo10')">Fondo 10</a> <!-- Enlace que cambia el fondo a 'fondo10' -->
+            <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a> 
+            <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a> 
+            <a href="#" onclick="changeBackground('fondo3')">Fondo 3</a> 
+            <a href="#" onclick="changeBackground('fondo4')">Fondo 4</a> 
+            <a href="#" onclick="changeBackground('fondo5')">Fondo 5</a> 
+            <a href="#" onclick="changeBackground('fondo6')">Fondo 6</a> 
+            <a href="#" onclick="changeBackground('fondo7')">Fondo 7</a> 
+            <a href="#" onclick="changeBackground('fondo8')">Fondo 8</a> 
+            <a href="#" onclick="changeBackground('fondo9')">Fondo 9</a> 
+            <a href="#" onclick="changeBackground('fondo10')">Fondo 10</a> 
         </div>
     </div>
 
-    <div class="div-atras"> <!-- Contenedor para el botón de "Atrás" -->
-        <button class="btn-back" onclick="window.location.href='index.html';"> <!-- Botón que redirige a 'index.html' -->
+    <div class="div-atras"> 
+        <button class="btn-back" onclick="window.location.href='index.html';"> 
             Atrás
         </button>
     </div>
 
-    <header class="header"> <!-- Cabecera de la página -->
-        <h1 class="titulo-header">ELIGE UNA CANCIÓN</h1> <!-- Título principal de la aplicación -->
+    <header class="header"> 
+        <h1 class="titulo-header">ELIGE UNA CANCIÓN</h1> 
     </header>
 
-    <div class="contenedor-bloques"> <!-- Contenedor para los bloques izquierdo y derecho -->
-        <!-- Bloque de la izquierda que será actualizado dinámicamente -->
+    <div class="contenedor-bloques"> 
         <div class="bloque-izquierda">
-            <div class="portada-cancion"> <!-- Contenedor para la portada de la canción -->
-                <img id="img-portada" src="img/noimatge.jpg" alt="Portada Canción" class="img-portada"> <!-- Imagen de la portada -->
-                <div class="info-cancion"> <!-- Contenedor para la información de la canción -->
-                    <h2 id="titulo-cancion" class="titulo-cancion-grande">Seleciona Una cancion</h2> <!-- Título de la canción -->
-                    <p id="artista-cancion" class="artista-cancion"></p> <!-- Nombre del artista (vacío al inicio) -->
+            <div class="portada-cancion">
+                <img id="img-portada" src="img/noimatge.jpg" alt="Portada Canción" class="img-portada">
+                <div class="info-cancion">
+                    <h2 id="titulo-cancion" class="titulo-cancion-grande">Selecciona Una Canción</h2>
+                    <p id="artista-cancion" class="artista-cancion"></p>
                 </div>
             </div>
         </div>
 
-        <!-- Bloque derecho donde se listan las canciones -->
         <div class="bloque-derecha">
-            <ul class="lista-canciones"> <!-- Lista que contendrá las canciones -->
-                <!-- Aquí se agregarán las canciones dinámicamente con JavaScript -->
+            <ul class="lista-canciones">
             </ul>
         </div>
     </div>
 
-    <script src="javascript.js"></script> <!-- Enlaza el archivo JavaScript que contiene la lógica de la aplicación -->
+    <script src="javascript.js"></script>
 
     <footer>
-        <div class="opciones-cancion"> <!-- Contenedor para las opciones de la canción -->
-            <button class="btn-opcion" onclick="window.location.href='juego.php'"> Jugar</button> <!-- Botón para iniciar el juego -->
-            <button class="btn-opcion" onclick="editarCancion()">Editar</button> <!-- Botón para editar la canción -->
-            <button class="btn-opcion" onclick="eliminarCancion()">Eliminar</button> <!-- Botón para eliminar la canción -->
+        <div class="opciones-cancion"> 
+            <button class="btn-opcion" onclick="iniciarJuego()">Jugar</button>
+            <button class="btn-opcion" onclick="editarCancion()">Editar</button> 
+            <button class="btn-opcion" onclick="eliminarCancion()">Eliminar</button> 
+        </div>
+        <div id="resultado-juego" class="resultado-juego">
+            <!-- Aquí se mostrarán los resultados -->
+        </div>
+
+        <!-- Contenedor para mostrar las variables -->
+        <div id="info-cancion-editada" style="margin-top: 20px;">
+            <h3>Información de la Canción Editada:</h3>
+            <p id="id-cancion-editada">ID: <span id="id-cancion-editada"></span></p>
+            <p id="imagen-editada">Imagen: <span id="img-editada"></span></p>
+            <p id="titulo-editado">Título: <span id="titulo-editado"></span></p>
+            <p id="artista-editado">Artista: <span id="artista-editado"></span></p>
         </div>
     </footer>
 
     <script>
-        // Variable para almacenar el objeto Audio que está reproduciéndose actualmente
         let currentAudio = null;
+        let imagenjuego = 'img/noimatge.jpg';  // Inicializar con la imagen predeterminada
+        let titulojuego = '';   // Variable para almacenar el título de la canción
+        let artistajuego = '';  // Variable para almacenar el artista de la canción
+        let idCancion = '';     // Variable para almacenar el ID de la canción
 
-        // Leer canciones desde el archivo JSON y mostrarlas en la lista de la derecha
         fetch('data.json')
-            .then(response => response.json()) // Convierte la respuesta en un objeto JSON
+            .then(response => response.json())
             .then(data => {
-                // Ordenar las canciones por el título
-                data.sort((a, b) => a.titulo_cancion.localeCompare(b.titulo_cancion)); // Ordena alfabéticamente
+                data.sort((a, b) => a.titulo_cancion.localeCompare(b.titulo_cancion));
+                const listaCanciones = document.querySelector('.lista-canciones');
+                listaCanciones.innerHTML = '';
 
-                const listaCanciones = document.querySelector('.lista-canciones'); // Selecciona el contenedor de la lista
-                listaCanciones.innerHTML = ''; // Limpiar la lista antes de añadir canciones
-
-                // Iterar sobre cada canción en el arreglo de datos
                 data.forEach(cancion => {
-                    // Crear un nuevo elemento <li> para cada canción
-                    const li = document.createElement('li'); // Crea un nuevo elemento de lista
-                    li.innerHTML = ` <!-- Contenido HTML del elemento de lista -->
-                        <a href="javascript:void(0);" onclick="playSong('${cancion.Cancion}', '${cancion['Foto cancion']}', '${cancion.titulo_cancion}', '${cancion.Artista}')"> <!-- Enlace para reproducir la canción -->
-                            <img src="uploads/${cancion['Foto cancion']}" alt="${cancion.titulo_cancion}" class="img-cancion"> <!-- Imagen de la canción -->
-                            <span class="titulo-cancion">${cancion.titulo_cancion}</span> <!-- Título de la canción -->
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="javascript:void(0);" onclick="selectSong('${cancion.Cancion}', '${cancion['Foto cancion']}', '${cancion.titulo_cancion}', '${cancion.Artista}', '${cancion.ID}')">
+                            <img src="uploads/${cancion['Foto cancion']}" alt="${cancion.titulo_cancion}" class="img-cancion">
+                            <span class="titulo-cancion">${cancion.titulo_cancion}</span>
                         </a>
-                        <!-- Campo oculto para el nombre del artista -->
-                        <input type="hidden" value="${cancion.Artista}"> <!-- Artista de la canción -->
-                        <!-- Campo oculto para el archivo MP3 -->
-                        <input type="hidden" value="${cancion.Cancion}"> <!-- Nombre del archivo de la canción -->
                     `;
-                    listaCanciones.appendChild(li); // Agregar el nuevo elemento a la lista
+                    listaCanciones.appendChild(li);
                 });
             });
 
-        // Función para actualizar la caja de la izquierda y reproducir la canción
-        function playSong(mp3File, imgFile, title, artist) {
-            // Detener la canción actual si ya hay una reproduciéndose
+        function selectSong(mp3File, imgFile, title, artist, id) {
             if (currentAudio) {
-                currentAudio.pause(); // Pausa la canción actual
-                currentAudio.currentTime = 0; // Reiniciar la canción
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
             }
 
-            // Actualizar la imagen, título y artista en la caja izquierda
-            document.getElementById('img-portada').src = `uploads/${imgFile}`; // Cambia la imagen de la portada
-            document.getElementById('titulo-cancion').textContent = title; // Cambia el título de la canción
-            document.getElementById('artista-cancion').textContent = `Artista: ${artist}`; // Cambia el nombre del artista
+            // Actualizar la interfaz con la canción seleccionada
+            document.getElementById('img-portada').src = `uploads/${imgFile}`;
+            document.getElementById('titulo-cancion').textContent = title;
+            document.getElementById('artista-cancion').textContent = `Artista: ${artist}`;
 
-            // Reproducir la nueva canción
-            currentAudio = new Audio(`uploads/${mp3File}`); // Crea un nuevo objeto Audio con el archivo MP3
-            currentAudio.play(); // Reproduce la canción
+            // Guardar la información de la canción seleccionada en variables
+            imagenjuego = `uploads/${imgFile}`; // Guardar la imagen seleccionada correctamente
+            titulojuego = title; // Guardar el título de la canción
+            artistajuego = artist; // Guardar el nombre del artista
+            idCancion = id; // Guardar el ID de la canción
+
+            // Iniciar la reproducción de la canción
+            currentAudio = new Audio(`uploads/${mp3File}`);
+            currentAudio.play();
         }
+
+        function iniciarJuego() {
+            // Verificar si la imagen es la predeterminada
+            if (imagenjuego === 'img/noimatge.jpg') {
+                alert('Tienes que seleccionar una imagen antes de jugar.');
+                return; // No redirigir a juego.php
+            }
+
+            // Redirigir a juego.php y pasar variables a través de la URL
+            window.location.href = `juego.php?imagenjuego=${encodeURIComponent(imagenjuego)}&titulojuego=${encodeURIComponent(titulojuego)}&artistajuego=${encodeURIComponent(artistajuego)}`;
+        }
+
+        function editarCancion() {
+    // Verificar si la imagen es la predeterminada
+    if (imagenjuego === 'img/noimatge.jpg') {
+        alert('No se puede editar la canción porqueno has selecionado ninguna cancion.');
+        return; // No redirigir a editform.php
+    }
+
+    // Redirigir a editform.php y pasar los datos de la canción a través de la URL
+    window.location.href = `editform.php?id=${encodeURIComponent(idCancion)}&titulo_cancion=${encodeURIComponent(titulojuego)}&artista_cancion=${encodeURIComponent(artistajuego)}&foto_cancion=${encodeURIComponent(imagenjuego)}`;
+}
+
+
     </script>
     
 </body>

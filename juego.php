@@ -1,3 +1,10 @@
+<?php
+// Recuperar las variables de la URL
+$imagenjuego = isset($_GET['imagenjuego']) ? $_GET['imagenjuego'] : 'img/noimatge.jpg'; // Valor por defecto
+$titulojuego = isset($_GET['titulojuego']) ? $_GET['titulojuego'] : 'Título desconocido'; // Valor por defecto
+$artistajuego = isset($_GET['artistajuego']) ? $_GET['artistajuego'] : 'Artista desconocido'; // Valor por defecto
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +14,10 @@
     <title>STEPMANIA</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/flecha.png" type="image/x-icon">
+    <script src="javascript.js"></script>
 </head>
 
 <body>
-<script src="javascript.js"></script>
     <div class="dropdown">
         <button class="dropbtn">Fondo</button>
         <div class="dropdown-content">
@@ -27,21 +34,22 @@
         </div>
     </div>
     <div class="div-atras"> <!-- Contenedor para el botón de "Atrás" -->
-        <button class="btn-back" onclick="window.location.href='index.html';"> <!-- Botón que redirige a 'index.html' -->
+        <button class="btn-back" onclick="window.location.href='prejuego.php';"> <!-- Botón que redirige a 'prejuego.php' -->
             Atrás
         </button>
     </div>
 
     <div class="contenedor-bloques"> 
-      
         <div class="bloque-izquierdo">
-            
+            <p> <img src="<?php echo htmlspecialchars($imagenjuego); ?>" alt="<?php echo htmlspecialchars($titulojuego); ?>" class="img-portada" ></p>
+            <p><strong>Título:</strong> <?php echo htmlspecialchars($titulojuego); ?></p>
+            <p><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
         </div>
         <div class="bloque-central">
-
+            <!-- Aquí puedes agregar contenido adicional -->
         </div>
         <div class="bloque-derecho">
-           
+            <a class> 0 pts</a>
         </div>
     </div>
 
