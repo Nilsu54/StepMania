@@ -14,30 +14,30 @@
     <div class="dropdown"> <!-- Contenedor para el menú desplegable de fondos -->
         <button class="dropbtn">Fondo</button> <!-- Botón que muestra el menú de selección de fondo -->
         <div class="dropdown-content"> <!-- Contenido del menú desplegable -->
-            <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a> 
-            <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a> 
-            <a href="#" onclick="changeBackground('fondo3')">Fondo 3</a> 
-            <a href="#" onclick="changeBackground('fondo4')">Fondo 4</a> 
-            <a href="#" onclick="changeBackground('fondo5')">Fondo 5</a> 
-            <a href="#" onclick="changeBackground('fondo6')">Fondo 6</a> 
-            <a href="#" onclick="changeBackground('fondo7')">Fondo 7</a> 
-            <a href="#" onclick="changeBackground('fondo8')">Fondo 8</a> 
-            <a href="#" onclick="changeBackground('fondo9')">Fondo 9</a> 
-            <a href="#" onclick="changeBackground('fondo10')">Fondo 10</a> 
+            <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a>
+            <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a>
+            <a href="#" onclick="changeBackground('fondo3')">Fondo 3</a>
+            <a href="#" onclick="changeBackground('fondo4')">Fondo 4</a>
+            <a href="#" onclick="changeBackground('fondo5')">Fondo 5</a>
+            <a href="#" onclick="changeBackground('fondo6')">Fondo 6</a>
+            <a href="#" onclick="changeBackground('fondo7')">Fondo 7</a>
+            <a href="#" onclick="changeBackground('fondo8')">Fondo 8</a>
+            <a href="#" onclick="changeBackground('fondo9')">Fondo 9</a>
+            <a href="#" onclick="changeBackground('fondo10')">Fondo 10</a>
         </div>
     </div>
 
-    <div class="div-atras"> 
-        <button class="btn-back" onclick="window.location.href='index.html';"> 
+    <div class="div-atras">
+        <button class="btn-back" onclick="window.location.href='index.html';">
             Atrás
         </button>
     </div>
 
-    <header class="header"> 
-        <h1 class="titulo-header">ELIGE UNA CANCIÓN</h1> 
+    <header class="header">
+        <h1 class="titulo-header">ELIGE UNA CANCIÓN</h1>
     </header>
 
-    <div class="contenedor-bloques"> 
+    <div class="contenedor-bloques">
         <div class="bloque-izquierda">
             <div class="portada-cancion">
                 <img id="img-portada" src="img/noimatge.jpg" alt="Portada Canción" class="img-portada">
@@ -54,29 +54,26 @@
         </div>
     </div>
 
-    <script src="javascript.js"></script>
-
     <footer>
-        <div class="opciones-cancion"> 
+        <div class="opciones-cancion">
             <button class="btn-opcion" onclick="iniciarJuego()">Jugar</button>
-            <button class="btn-opcion" onclick="editarCancion()">Editar</button> 
-            <button class="btn-opcion" onclick="eliminarCancion()">Eliminar</button> 
+            <button class="btn-opcion" onclick="editarCancion()">Editar</button>
+            <button class="btn-opcion" onclick="eliminarCancion()">Eliminar</button>
         </div>
         <div id="resultado-juego" class="resultado-juego">
             <!-- Aquí se mostrarán los resultados -->
         </div>
-
-       
     </footer>
 
+    <script src="javascript.js"></script>
 
-    
     <script>
         let currentAudio = null;
         let imagenjuego = 'img/noimatge.jpg';  // Inicializar con la imagen predeterminada
         let titulojuego = '';   // Variable para almacenar el título de la canción
         let artistajuego = '';  // Variable para almacenar el artista de la canción
         let idCancion = '';     // Variable para almacenar el ID de la canción
+        let rutaAudio = '';     // Variable para almacenar la ruta del audio
 
         fetch('data.json')
             .then(response => response.json())
@@ -97,7 +94,6 @@
                 });
             });
 
-            
         function selectSong(mp3File, imgFile, title, artist, id) {
             if (currentAudio) {
                 currentAudio.pause();
@@ -114,25 +110,26 @@
             titulojuego = title; // Guardar el título de la canción
             artistajuego = artist; // Guardar el nombre del artista
             idCancion = id; // Guardar el ID de la canción
+            rutaAudio = `uploads/${mp3File}`; // Guardar la ruta del audio
 
             // Iniciar la reproducción de la canción
-            currentAudio = new Audio(`uploads/${mp3File}`);
+            currentAudio = new Audio(rutaAudio); // Cargar el audio desde la ruta guardada
             currentAudio.play();
         }
 
-
         function eliminarCancion() {
-    // Verificar si hay una canción seleccionada
-    if (idCancion === '') {
-        alert('No se ha seleccionado ninguna canción para eliminar.');
-        return;
-    }
-     // Confirmación antes de eliminar
-     const confirmDelete = confirm('¿Estás seguro de que deseas eliminar esta canción?');
-    if (!confirmDelete) {
-        return; // Si el usuario cancela, no hacer nada
-    }
-}
+            // Verificar si hay una canción seleccionada
+            if (idCancion === '') {
+                alert('No se ha seleccionado ninguna canción para eliminar.');
+                return;
+            }
+            // Confirmación antes de eliminar
+            const confirmDelete = confirm('¿Estás seguro de que deseas eliminar esta canción?');
+            if (!confirmDelete) {
+                return; // Si el usuario cancela, no hacer nada
+            }
+        }
+
         function iniciarJuego() {
             // Verificar si la imagen es la predeterminada
             if (imagenjuego === 'img/noimatge.jpg') {
@@ -141,23 +138,21 @@
             }
 
             // Redirigir a juego.php y pasar variables a través de la URL
-            window.location.href = `juego.php?imagenjuego=${encodeURIComponent(imagenjuego)}&titulojuego=${encodeURIComponent(titulojuego)}&artistajuego=${encodeURIComponent(artistajuego)}`;
+            window.location.href = `juego.php?imagenjuego=${encodeURIComponent(imagenjuego)}&titulo_cancion=${encodeURIComponent(titulojuego)}&artistajuego=${encodeURIComponent(artistajuego)}&audiofile=${encodeURIComponent(rutaAudio)}`; // Asegúrate de que el archivo de audio tenga la extensión correcta
         }
 
         function editarCancion() {
-    // Verificar si la imagen es la predeterminada
-    if (imagenjuego === 'img/noimatge.jpg') {
-        alert('No se puede editar la canción porqueno has selecionado ninguna cancion.');
-        return; // No redirigir a editform.php
-    }
+            // Verificar si la imagen es la predeterminada
+            if (imagenjuego === 'img/noimatge.jpg') {
+                alert('No se puede editar la canción porque no has seleccionado ninguna canción.');
+                return; // No redirigir a editform.php
+            }
 
-    // Redirigir a editform.php y pasar los datos de la canción a través de la URL
-    window.location.href = `editform.php?id=${encodeURIComponent(idCancion)}&titulo_cancion=${encodeURIComponent(titulojuego)}&artista_cancion=${encodeURIComponent(artistajuego)}&foto_cancion=${encodeURIComponent(imagenjuego)}`;
-}
-
-
+            // Redirigir a editform.php y pasar los datos de la canción a través de la URL
+            window.location.href = `editform.php?id=${encodeURIComponent(idCancion)}&titulo_cancion=${encodeURIComponent(titulojuego)}&artista_cancion=${encodeURIComponent(artistajuego)}&foto_cancion=${encodeURIComponent(imagenjuego)}`;
+        }
     </script>
-    
+
 </body>
 
 </html>
