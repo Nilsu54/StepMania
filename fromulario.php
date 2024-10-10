@@ -77,7 +77,7 @@
 
             <label for="foto_cancion">Subir Foto JPG:</label>
             <!-- Etiqueta para el campo de subida de imagen -->
-            <input class="btn-arx" type="file" id="foto_cancion" name="foto_cancion" accept=".jpg,.jpeg,.jfif" required>
+            <input class="btn-arx" type="file" id="foto_cancion" name="foto_cancion" accept=".jpg,.jpeg,.jfif,." required>
             <!-- Campo para subir una imagen de formato JPG/JPEG/JFIF -->
 
             <label for="txt_cancion">Archivo TXT:</label>

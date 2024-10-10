@@ -6,7 +6,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
+    overflow: hidden; /* Evita el scroll en todo el cuerpo */
     background-image: url(img/fondo1.gif);
 }
 
@@ -303,8 +303,11 @@ button {
     height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
-
+    scrollbar-width: thin; 
+    scrollbar-color: #FF00FF #000000; 
+   
 }
+
 
 .lista-canciones li {
     display: flexbox;
@@ -321,7 +324,10 @@ button {
     border-radius: 10px;
     border: 3px solid white;
     margin-right: 10%;
+}
 
+.separar{
+    text-align: center;
 }
 
 .img-joc{
@@ -347,7 +353,17 @@ margin-top: 100px;
 }
 
 .img-portada {
-
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 8px solid white;
+    align-items: center;
+    align-self: center;
+}
+.imgjoc {
+    
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -527,6 +543,43 @@ body.fondo10 {
 
 /* JUEGO */
 
+/* Barra de progreso */
+.barra-progreso {
+    display: flex;
+    flex-direction: column;     /* Cambia la dirección a columna para alinear barra y texto */
+    justify-content: end;    /* Centra los elementos en el contenedor */
+    align-items: center;        /* Centra horizontalmente */
+    height:100%;  /* Reduce la altura total para dejar 50px de separación con el fondo */
+    margin-bottom: 10px;
+}
+
+progress {
+    width: 95%; /* Ancho completo */
+    height: 20px; /* Altura de la barra */
+    background-color: rgba(0, 0, 0, 0.753); /* Fondo negro semi-transparente */
+    border: 3px ridge #FF00FF; /* Borde color fucsia */
+}
+
+/* Estilo interno de la barra de progreso */
+progress::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.753); /* Fondo de la barra */
+}
+
+progress::-webkit-progress-value {
+    background-color: #00cfff; /* Color de la barra */
+    transition: width 0.4s ease; /* Transición suave */
+}
+
+progress::-moz-progress-bar {
+    background-color: #00cfff; /* Color de la barra */
+}
+
+#progress-text {
+    margin-top: 10px;           /* Espacio entre la barra de progreso y el texto */
+    font-size: 25px;            /* Tamaño de la fuente */
+    color: #00cfff;             /* Color del texto (cian) */
+    font-family: 'Handjet';      /* Fuente personalizada */
+}
 .contendordebloques{
     display: flex;
     gap: 10px;
@@ -566,7 +619,7 @@ element.style {
 }
 .bloque-central{
     margin-top: 100px;
-
+    overflow: hidden;
     width: 50%;
     background-color: #000000bf;
     border: 3px ridge #FF00FF;
@@ -576,4 +629,5 @@ element.style {
     height: 600px;              /* Asegura que el contenedor principal ocupe toda la altura */
     overflow-y: auto;
     overflow-x: hidden;
+    overflow: hidden;
 }

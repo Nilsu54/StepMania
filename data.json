@@ -22,5 +22,37 @@
         "Foto cancion": "cancion5.jfif",
         "txt juego": "prova.txt.txt",
         "Cancion": "The Rolling Stones - Start Me Up - Official Promo.mp3"
+    },
+    {
+        "ID": "167052cc21ea01",
+        "titulo_cancion": "Memorias",
+        "Artista": "Mora",
+        "Foto cancion": "cancion2.jfif",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "Mora, Jhay Cortez - MEMORIAS.mp3"
+    },
+    {
+        "ID": "16705448a304ca",
+        "titulo_cancion": "Do i Wanna know?",
+        "Artista": "Artic Mokeys",
+        "Foto cancion": "cancion3.jfif",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "Arctic Monkeys - Do I Wanna Know_ (Official Video).mp3"
+    },
+    {
+        "ID": "1670545e9eb52b",
+        "titulo_cancion": "1 de enero punta cana",
+        "Artista": "Rels B",
+        "Foto cancion": "cancion6.jpg",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "Rels B - 1 de enero, Puntacana.mp3"
+    },
+    {
+        "ID": "167054e3a49a0f",
+        "titulo_cancion": "Broken Ties",
+        "Artista": "The Whistles",
+        "Foto cancion": "cancion7.jpg",
+        "txt juego": "prova.txt.txt",
+        "Cancion": "Broken Ties (The Whistlers Remix).mp3"
     }
 ]

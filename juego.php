@@ -6,7 +6,7 @@ $artistajuego = isset($_GET['artistajuego']) ? $_GET['artistajuego'] : 'Artista 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -33,26 +33,65 @@ $artistajuego = isset($_GET['artistajuego']) ? $_GET['artistajuego'] : 'Artista 
             <a href="#" onclick="changeBackground('fondo10')">Fondo 10</a>
         </div>
     </div>
-    <div class="div-atras"> <!-- Contenedor para el botón de "Atrás" -->
-        <button class="btn-back" onclick="window.location.href='prejuego.php';"> <!-- Botón que redirige a 'prejuego.php' -->
+
+    <div class="div-atras">
+        <button class="btn-back" onclick="window.location.href='prejuego.php';">
             Atrás
         </button>
     </div>
 
     <div class="contenedor-bloques"> 
         <div class="bloque-izquierdo">
-            <p> <img src="<?php echo htmlspecialchars($imagenjuego); ?>" alt="<?php echo htmlspecialchars($titulojuego); ?>" class="img-portada" ></p>
-            <p><strong>Título:</strong> <?php echo htmlspecialchars($titulojuego); ?></p>
-            <p><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
+            <p>
+                <img class="imgjoc" src="<?php echo htmlspecialchars($imagenjuego); ?>" alt="<?php echo htmlspecialchars($titulojuego); ?>" class="img-portada">
+            </p>
+            <p class="separar"><strong>Título:</strong> <?php echo htmlspecialchars($titulojuego); ?></p>
+            <p class="separar"><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
         </div>
         <div class="bloque-central">
-            <!-- Aquí puedes agregar contenido adicional -->
+            <div class="barra-progreso" >
+            <span id="progress-text">0%</span>
+                <progress id="file" max="100" value="0">0%</progress>
+                
+            </div>
         </div>
         <div class="bloque-derecho">
             <a class> 0 pts</a>
         </div>
     </div>
 
+    <script>
+        // Obtén la barra de progreso
+        const progressBar = document.getElementById('file');
+        const progressText = document.getElementById('progress-text');
+
+        // Duración total en milisegundos (2 minutos)
+        const duration =   120000; // 2 minutos
+
+        // Incremento en porcentaje cada intervalo
+        const increment = 100 / (duration / 100); // 100% / (duración en segundos)
+
+        // Inicializa el progreso
+        let currentValue = 0;
+
+        // Función para actualizar la barra de progreso
+        function updateProgress() {
+            if (currentValue < 100) {
+                currentValue += increment; // Incrementa el valor
+                progressBar.value = currentValue; // Actualiza el valor en la barra
+                progressText.textContent = Math.floor(currentValue) + '%'; // Actualiza el texto del porcentaje
+                // Llama a la función nuevamente después de 100 ms
+                setTimeout(updateProgress, 100);
+            } else {
+                progressText.textContent = '100%'; // Asegúrate de mostrar 100% al final
+            }
+        }
+
+        // Comienza a actualizar la barra de progreso
+        updateProgress();
+
+        
+    </script>
 </body>
 
 </html>

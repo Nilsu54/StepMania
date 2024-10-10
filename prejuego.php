@@ -66,16 +66,11 @@
             <!-- Aquí se mostrarán los resultados -->
         </div>
 
-        <!-- Contenedor para mostrar las variables -->
-        <div id="info-cancion-editada" style="margin-top: 20px;">
-            <h3>Información de la Canción Editada:</h3>
-            <p id="id-cancion-editada">ID: <span id="id-cancion-editada"></span></p>
-            <p id="imagen-editada">Imagen: <span id="img-editada"></span></p>
-            <p id="titulo-editado">Título: <span id="titulo-editado"></span></p>
-            <p id="artista-editado">Artista: <span id="artista-editado"></span></p>
-        </div>
+       
     </footer>
 
+
+    
     <script>
         let currentAudio = null;
         let imagenjuego = 'img/noimatge.jpg';  // Inicializar con la imagen predeterminada
@@ -102,6 +97,7 @@
                 });
             });
 
+            
         function selectSong(mp3File, imgFile, title, artist, id) {
             if (currentAudio) {
                 currentAudio.pause();
@@ -124,6 +120,19 @@
             currentAudio.play();
         }
 
+
+        function eliminarCancion() {
+    // Verificar si hay una canción seleccionada
+    if (idCancion === '') {
+        alert('No se ha seleccionado ninguna canción para eliminar.');
+        return;
+    }
+     // Confirmación antes de eliminar
+     const confirmDelete = confirm('¿Estás seguro de que deseas eliminar esta canción?');
+    if (!confirmDelete) {
+        return; // Si el usuario cancela, no hacer nada
+    }
+}
         function iniciarJuego() {
             // Verificar si la imagen es la predeterminada
             if (imagenjuego === 'img/noimatge.jpg') {
