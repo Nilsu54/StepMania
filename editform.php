@@ -64,7 +64,7 @@ if ($idCancion) {
 
             <label for="foto_cancion">Subir Foto JPG:</label>
             <input class="btn-arx" type="file" id="foto_cancion" name="foto_cancion" accept=".jpg,.jpeg,.jfif,.png">
-            <p>Foto actual: <img src="uploads/<?php echo htmlspecialchars($cancionEditar['Foto cancion'] ?? 'noimage.jpg'); ?>" alt="Imagen Actual" style="width: 40px;"></p>
+            <p>Foto actual:</p><p> <img class="imgedit" src="uploads/<?php echo htmlspecialchars($cancionEditar['Foto cancion'] ?? 'noimage.jpg'); ?>" alt="Imagen Actual" style="width: 40px;"></p>
 
             <label for="txt_cancion">Archivo TXT:</label>
             <input type="file" id="txt_cancion" name="txt_cancion" accept=".txt">
