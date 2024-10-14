@@ -1,3 +1,10 @@
+<?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+ini_set('display_errors', '0');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="esp">
 <!-- Define el tipo de documento como HTML y establece el idioma a español -->

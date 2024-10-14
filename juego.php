@@ -56,6 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Guardar los cambios en el archivo JSON
     file_put_contents($jsonFile, json_encode($usuarios, JSON_PRETTY_PRINT));
+
+    // Redirigir a clasificación.php
+    header('Location: Classificación.php');
+    exit(); // Asegurarse de que no se ejecute más código después de la redirección
 }
 ?>
 
@@ -107,12 +111,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="separar"><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
         </div>
         <div class="bloque-central">
-            <h1 class="titulo-joc">Gas al matalas</h1>
+            <h1 class="titulo-joc">¡Rompe la Pista!</h1>
             <div class="bloque-de-flechas">
                 <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-esquerra.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-adalt.jpg"> </div>
-                <div class="bloque-flecha"> <img class="flecha-dreta" src="/img/flecha-abaix.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-dreta.jpg"> </div>
+                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-adalt.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-abaix.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-dreta.jpg"></div>
             </div>
 
             <div class="barra-progreso">
