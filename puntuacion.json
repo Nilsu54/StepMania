@@ -18,5 +18,15 @@
         "usuario": "Nil",
         "puntuacion": 11,
         "ultima_entrada": "2024-10-14 14:54:18"
+    },
+    {
+        "usuario": "arnau",
+        "puntuacion": 43,
+        "ultima_entrada": "2024-10-14 16:01:41"
+    },
+    {
+        "usuario": "Gerard",
+        "puntuacion": 77,
+        "ultima_entrada": "2024-10-14 16:38:23"
     }
 ]

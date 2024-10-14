@@ -1,9 +1,9 @@
 <?php
 // Recuperar las variables de la URL utilizando el método GET
-$imagenjuego = isset($_GET['imagenjuego']) ? $_GET['imagenjuego'] : 'img/noimatge.jpg';
-$titulo_juego = isset($_GET['titulo_cancion']) ? $_GET['titulo_cancion'] : 'Título desconocido';
-$artistajuego = isset($_GET['artistajuego']) ? $_GET['artistajuego'] : 'Artista desconocido';
-$audiotrack = isset($_GET['audiofile']) ? $_GET['audiofile'] : '';
+$imagenjuego = isset($_GET['imagenjuego']) ? htmlspecialchars($_GET['imagenjuego']) : 'img/noimatge.jpg';
+$titulo_juego = isset($_GET['titulo_cancion']) ? htmlspecialchars($_GET['titulo_cancion']) : 'Título desconocido';
+$artistajuego = isset($_GET['artistajuego']) ? htmlspecialchars($_GET['artistajuego']) : 'Artista desconocido';
+$audiotrack = isset($_GET['audiofile']) ? htmlspecialchars($_GET['audiofile']) : '';
 
 $usuario = '';
 $puntuacion = '';
@@ -16,6 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar y limpiar los datos
     $usuario = htmlspecialchars($_POST['nombre']);
     $puntuacion = htmlspecialchars($_POST['puntuacion']);
+
+    // Asegúrate de que la puntuación es un número válido
+    if (!is_numeric($puntuacion) || intval($puntuacion) < 0) {
+        // Si la puntuación no es válida, puedes manejarlo aquí, por ejemplo, mostrar un error
+        echo "<script>alert('Puntuación no válida. Debe ser un número positivo.'); window.history.back();</script>";
+        exit();
+    }
 
     // Generar un nombre único para la cookie
     $cookieName = 'puntuacion_' . time(); // Ejemplo: puntuacion_1635403450
@@ -55,7 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Guardar los cambios en el archivo JSON
-    file_put_contents($jsonFile, json_encode($usuarios, JSON_PRETTY_PRINT));
+    if (file_put_contents($jsonFile, json_encode($usuarios, JSON_PRETTY_PRINT)) === false) {
+        echo "<script>alert('Error al guardar la puntuación. Inténtalo de nuevo.'); window.history.back();</script>";
+        exit();
+    }
 
     // Redirigir a clasificación.php
     header('Location: Classificación.php');
@@ -99,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="div-atras">
-        <button class="btn-back" onclick="window.location.href='prejuego.php';">Atrás</button>
+        <button class="btn-back" onclick="confirmarSalida()">Atrás</button>
     </div>
 
     <div class="contenedor-bloques">
@@ -111,11 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="separar"><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
         </div>
         <div class="bloque-central">
-            <h1 class="titulo-joc">¡Rompe la Pista!</h1>
+            <h1 class="titulo-joc">¡Joel supera a tu ex!</h1>
             <div class="bloque-de-flechas">
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-esquerra.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-adalt.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-abaix.jpg"></div>
+                <div class="bloque-flecha"><img  class="flecha-esquerra" src="/img/flecha-esquerra.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-adalt" src="/img/flecha-adalt.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-abaix" src="/img/flecha-abaix.jpg"></div>
                 <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-dreta.jpg"></div>
             </div>
 
@@ -141,13 +151,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-
+    
     <script>
+let flechas = document.querySelectorAll('.flecha-dreta, .flecha-adalt, .flecha-abaix, .flecha-esquerra');
+let flechaVisible = null; // Para rastrear la flecha actualmente visible
+
+function mostrarFlechasAleatoriamente() {
+    // Ocultar todas las flechas primero
+    flechas.forEach(flecha => {
+        flecha.style.display = 'none'; // Oculta todas las flechas
+    });
+
+    // Seleccionar un índice aleatorio para mostrar una flecha
+    const randomIndex = Math.floor(Math.random() * flechas.length);
+    
+    // Mostrar la flecha seleccionada
+    flechas[randomIndex].style.display = 'block'; // Muestra solo una flecha
+    flechaVisible = flechas[randomIndex]; // Actualiza la flecha visible
+
+    // Ocultar la flecha después de 2 segundos
+    setTimeout(() => {
+        flechaVisible.style.display = 'none'; // Oculta la flecha
+        flechaVisible = null; // Resetea la flecha visible
+    }, 2000); // Cambia el tiempo a 2000 ms para 2 segundos
+}
+
+// Llamar a la función cada 3 segundos para que haya un intervalo entre la aparición y desaparición
+setInterval(mostrarFlechasAleatoriamente, 3000); // Cambia cada 3 segundos
+
+// Función para ocultar la flecha visible al presionar las teclas
+document.addEventListener('keydown', (event) => {
+    // Detectar "d" o "D" para ocultar flecha-dreta
+    if ((event.key === 'd' || event.key === 'D') && flechaVisible && flechaVisible.classList.contains('flecha-dreta')) {
+        flechaVisible.style.display = 'none'; // Oculta la flecha visible
+        flechaVisible = null; // Resetea la flecha visible
+    }
+
+    if ((event.key === 'a' || event.key === 'A') && flechaVisible && flechaVisible.classList.contains('flecha-esquerra')) {
+        flechaVisible.style.display = 'none'; // Oculta la flecha visible
+        flechaVisible = null; // Resetea la flecha visible
+    }
+});
+
+
+
+
         function mostrarFormulario() {
             // Cambiar la visibilidad del formulario
             document.getElementById('formulario').style.display = 'block';
             // Ocultar el botón después de hacer clic
             document.getElementById('save-score').style.display = 'none';
+        }
+
+        function confirmarSalida() {
+            if (confirm("¿Estás seguro de que deseas volver atrás?")) {
+                window.location.href = 'prejuego.php';
+            }
         }
 
         const audio = document.getElementById('audio');
@@ -189,6 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             update();
         }
+        
     </script>
 
 </body>

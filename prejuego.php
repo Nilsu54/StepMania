@@ -1,19 +1,62 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_cancion'])) {
+    // Obtener el ID de la canción desde el formulario
+    $id = $_POST['id_cancion']; // No se necesita convertir a entero, ya que el ID es una cadena
+    $jsonFile = 'data.json';  // Ruta del archivo JSON de canciones
+
+    if (file_exists($jsonFile)) {
+        $jsonData = json_decode(file_get_contents($jsonFile), true); // Decodificar el JSON
+
+        if (!empty($jsonData)) {
+            foreach ($jsonData as $index => $cancion) {
+                // Comparar el ID de la canción
+                if ($cancion['ID'] === $id) {
+                    $archivoMP3 = 'uploads/songs/' . basename($cancion['Cancion']);
+                    $archivoImagen = 'uploads/img/' . basename($cancion['Foto cancion']);
+
+                    // Eliminar archivo MP3
+                    if (file_exists($archivoMP3)) {
+                        unlink($archivoMP3);
+                    }
+
+                    // Eliminar imagen
+                    if (file_exists($archivoImagen)) {
+                        unlink($archivoImagen);
+                    }
+
+                    // Eliminar la canción del array
+                    unset($jsonData[$index]);
+
+                    // Reindexar el array y guardar cambios en el JSON
+                    $jsonData = array_values($jsonData);
+                    file_put_contents($jsonFile, json_encode($jsonData, JSON_PRETTY_PRINT));
+
+                    // Mensaje de éxito
+                    echo json_encode(["status" => "success", "message" => "Canción y archivos eliminados correctamente"]);
+                    exit();
+                }
+            }
+        }
+    }
+    echo json_encode(["status" => "error", "message" => "No se encontró la canción con ese ID."]);
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva en dispositivos móviles -->
-    <title>Selector de Canciones</title> <!-- Título que aparece en la pestaña del navegador -->
-    <link rel="stylesheet" href="styles.css"> <!-- Enlaza la hoja de estilos CSS para dar formato a la página -->
-    <link rel="icon" href="img/flecha.png" type="image/x-icon"> <!-- Enlaza un icono que aparece en la pestaña del navegador -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Canciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/flecha.png" type="image/x-icon">
 </head>
-
 <body>
 
-    <div class="dropdown"> <!-- Contenedor para el menú desplegable de fondos -->
-        <button class="dropbtn">Fondo</button> <!-- Botón que muestra el menú de selección de fondo -->
-        <div class="dropdown-content"> <!-- Contenido del menú desplegable -->
+    <div class="dropdown">
+        <button class="dropbtn">Fondo</button>
+        <div class="dropdown-content">
             <a href="#" onclick="changeBackground('fondo1')">Fondo 1</a>
             <a href="#" onclick="changeBackground('fondo2')">Fondo 2</a>
             <a href="#" onclick="changeBackground('fondo3')">Fondo 3</a>
@@ -123,11 +166,28 @@
                 alert('No se ha seleccionado ninguna canción para eliminar.');
                 return;
             }
+
             // Confirmación antes de eliminar
             const confirmDelete = confirm('¿Estás seguro de que deseas eliminar esta canción?');
             if (!confirmDelete) {
                 return; // Si el usuario cancela, no hacer nada
             }
+
+            // Enviar la solicitud POST para eliminar la canción
+            const formData = new FormData();
+            formData.append('id_cancion', idCancion);
+
+            fetch('', { // Enviar a la misma página
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.message); // Mostrar mensaje de éxito o error
+                // Recargar la lista de canciones en la interfaz
+                location.reload(); // Recargar la página para actualizar la lista
+            })
+            .catch(error => console.error('Error al eliminar la canción:', error));
         }
 
         function iniciarJuego() {
@@ -154,5 +214,4 @@
     </script>
 
 </body>
-
 </html>

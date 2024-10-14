@@ -582,11 +582,16 @@ body.fondo10 {
     justify-content: center;
     align-items: center;        /* Centra el contenido verticalmente */
     
+    
 }
 
-.flecha-dreta{
+.flecha-dreta,
+.flecha-adalt,
+.flecha-abaix,
+.flecha-esquerra{
     height: 40px;
     margin-top: 25px;
+    display: none;
 }
 .bloque-de-flechas{
     display: flex;
