@@ -1,3 +1,27 @@
+<?php
+// Ruta del archivo JSON
+$jsonFile = 'puntuacion.json';
+
+// Leer el contenido del archivo JSON
+if (file_exists($jsonFile)) {
+    $usuarios = json_decode(file_get_contents($jsonFile), true);
+    // Asegúrate de que $usuarios sea un array
+    if (!is_array($usuarios)) {
+        $usuarios = [];
+    }
+} else {
+    $usuarios = []; // Inicializar como array vacío si el archivo no existe
+}
+
+// Ordenar los usuarios por puntuación en orden descendente
+usort($usuarios, function($a, $b) {
+    return $b['puntuacion'] - $a['puntuacion'];
+});
+
+// Limitar a los 10 mejores jugadores
+$topPlayers = array_slice($usuarios, 0, 10);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +31,12 @@
     <title>Classificación</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/flecha.png" type="image/x-icon">
-
 </head>
 
 <body>
-
-    <h2 class="titulo-clas">CLASSIFICACIÓN</h2>
-
+    <div>
+        <h2 class="titulo-clas">CLASSIFICACIÓN</h2>
+    </div>
     <div class="dropdown">
         <button class="dropbtn">Fondo</button>
         <div class="dropdown-content">
@@ -36,57 +59,25 @@
     </div>
     <div class="div-clas">
         <ul class="ul-clas">
-            <li>
-                <span class="nombre-clas">Jugador 1: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
+            <?php
+            // Generar la lista de jugadores
+            foreach ($topPlayers as $index => $jugador) {
+                // Mostrar solo hasta 10 jugadores
+                echo '<li>
+                        <span class="nombre-clas">Jugador ' . ($index + 1) . ': ' . htmlspecialchars($jugador['usuario']) . '</span>
+                        <span class="pts-clas"> ' . htmlspecialchars($jugador['puntuacion']) . ' pts</span>
+                      </li>';
+            }
 
-            <li>
-                <span class="nombre-clas">Jugador 2: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-            <li>
-                <span class="nombre-clas">Jugador 3: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 4: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 5: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 6: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 7: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 8: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 9: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
-
-            <li>
-                <span class="nombre-clas">Jugador 10: Carlos Fernández</span>
-                <span class="pts-clas"> 0pts</span>
-            </li>
+            // Rellenar hasta 10 si hay menos de 10 jugadores
+            for ($i = count($topPlayers); $i < 10; $i++) {
+                echo '<li>
+                        <span class="nombre-clas">Jugador ' . ($i + 1) . ': --</span>
+                        <span class="pts-clas"> 0 pts</span>
+                      </li>';
+            }
+            ?>
         </ul>
-
-
     </div>
 
     <script src="javascript.js"></script>
