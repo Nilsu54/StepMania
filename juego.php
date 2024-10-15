@@ -135,7 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="bloque-derecho">
-            <span id="score-display">0 pts</span>
+        <span id="score-display">0 pts</span>
+
             <!-- Botón para mostrar el formulario -->
             <button class="save-score" id="save-score" style="display: none;" onclick="mostrarFormulario()">Guardar Puntuación</button>
 
@@ -153,8 +154,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     
     <script>
+
 let flechas = document.querySelectorAll('.flecha-dreta, .flecha-adalt, .flecha-abaix, .flecha-esquerra');
 let flechaVisible = null; // Para rastrear la flecha actualmente visible
+let score = 0;
+let flechaInterval; // Variable para el intervalo de las flechas
+
+function restapunts() {
+    score = score - 50;
+    document.getElementById('score-display').textContent = score + ' pts'; // Actualiza el display
+}
+
+function sumapunts() {
+    score = score + 100;
+    document.getElementById('score-display').textContent = score + ' pts'; // Actualiza el display
+}
 
 function mostrarFlechasAleatoriamente() {
     // Ocultar todas las flechas primero
@@ -173,84 +187,94 @@ function mostrarFlechasAleatoriamente() {
     setTimeout(() => {
         flechaVisible.style.display = 'none'; // Oculta la flecha
         flechaVisible = null; // Resetea la flecha visible
-    }, 2000); // Cambia el tiempo a 2000 ms para 2 segundos
+    }, 350); // Cambia el tiempo a 400 ms 
 }
 
-// Llamar a la función cada 3 segundos para que haya un intervalo entre la aparición y desaparición
-setInterval(mostrarFlechasAleatoriamente, 3000); // Cambia cada 3 segundos
+// Llamar a la función cada 1 segundos para que haya un intervalo entre la aparición y desaparición
+flechaInterval = setInterval(mostrarFlechasAleatoriamente, 1000); // Cambia cada 1 segundos
 
-// Función para ocultar la flecha visible al presionar las teclas
 document.addEventListener('keydown', (event) => {
     // Detectar "d" o "D" para ocultar flecha-dreta
     if ((event.key === 'd' || event.key === 'D') && flechaVisible && flechaVisible.classList.contains('flecha-dreta')) {
         flechaVisible.style.display = 'none'; // Oculta la flecha visible
         flechaVisible = null; // Resetea la flecha visible
+        sumapunts();
     }
-
     if ((event.key === 'a' || event.key === 'A') && flechaVisible && flechaVisible.classList.contains('flecha-esquerra')) {
         flechaVisible.style.display = 'none'; // Oculta la flecha visible
         flechaVisible = null; // Resetea la flecha visible
+        sumapunts();
+    }
+    if ((event.key === 'w' || event.key === 'W') && flechaVisible && flechaVisible.classList.contains('flecha-adalt')) {
+        flechaVisible.style.display = 'none'; // Oculta la flecha visible
+        flechaVisible = null; // Resetea la flecha visible
+        sumapunts();
+    }
+    if ((event.key === 's' || event.key === 'S') && flechaVisible && flechaVisible.classList.contains('flecha-abaix')) {
+        flechaVisible.style.display = 'none'; // Oculta la flecha visible
+        flechaVisible = null; // Resetea la flecha visible
+        sumapunts();
+    }
+    if ((event.key === 's' || event.key === 'S' || event.key === 'a' || event.key === 'A' || event.key === 'w' || event.key === 'W' || event.key === 'd' || event.key === 'D')) {
+        flechaVisible.style.display = 'none'; // Oculta la flecha visible
+        flechaVisible = null; // Resetea la flecha visible
+        restapunts();
     }
 });
 
+function mostrarFormulario() {
+    // Cambiar la visibilidad del formulario
+    document.getElementById('formulario').style.display = 'block';
+    // Ocultar el botón después de hacer clic
+    document.getElementById('save-score').style.display = 'none';
+}
 
+function confirmarSalida() {
+    if (confirm("¿Estás seguro de que deseas volver atrás?")) {
+        window.location.href = 'prejuego.php';
+    }
+}
 
+const audio = document.getElementById('audio');
 
-        function mostrarFormulario() {
-            // Cambiar la visibilidad del formulario
-            document.getElementById('formulario').style.display = 'block';
-            // Ocultar el botón después de hacer clic
-            document.getElementById('save-score').style.display = 'none';
+audio.addEventListener('loadedmetadata', function() {
+    const duration = audio.duration * 1000;
+    updateProgress(duration);
+});
+
+function updateProgress(duration) {
+    const progressBar = document.getElementById('file');
+    const progressText = document.getElementById('progress-text');
+    const scoreDisplay = document.getElementById('score-display');
+    const saveButton = document.getElementById('save-score');
+    const puntuacionInput = document.getElementById('puntuacion');
+
+    let currentValue = 0;
+    const increment = 100 / (duration / 100);
+
+    function update() {
+        if (currentValue < 100) {
+            currentValue += increment;
+            progressBar.value = currentValue;
+            progressText.textContent = Math.floor(currentValue) + '%';
+            setTimeout(update, 100);
+        } else {
+            progressText.textContent = '100%';
+
+            // Detener la aparición de flechas al llegar al 100%
+            clearInterval(flechaInterval); // Detener el intervalo de las flechas
+
+            // Asignar la puntuación al campo oculto del formulario
+            puntuacionInput.value = score;
+            console.log('Puntuación enviada:', score); // Verificar valor
+            // Mostrar el botón de guardar
+            saveButton.style.display = 'block';
         }
+    }
+    update();
+}
 
-        function confirmarSalida() {
-            if (confirm("¿Estás seguro de que deseas volver atrás?")) {
-                window.location.href = 'prejuego.php';
-            }
-        }
-
-        const audio = document.getElementById('audio');
-
-        audio.addEventListener('loadedmetadata', function() {
-            const duration = audio.duration * 1000;
-            updateProgress(duration);
-        });
-
-        function updateProgress(duration) {
-            const progressBar = document.getElementById('file');
-            const progressText = document.getElementById('progress-text');
-            const scoreDisplay = document.getElementById('score-display');
-            const saveButton = document.getElementById('save-score');
-            const puntuacionInput = document.getElementById('puntuacion');
-
-            let currentValue = 0;
-            const increment = 100 / (duration / 100);
-
-            function update() {
-                if (currentValue < 100) {
-                    currentValue += increment;
-                    progressBar.value = currentValue;
-                    progressText.textContent = Math.floor(currentValue) + '%';
-                    setTimeout(update, 100);
-                } else {
-                    progressText.textContent = '100%';
-
-                    // Generar puntuación aleatoria
-                    const score = Math.floor(Math.random() * 100);
-                    scoreDisplay.textContent = 'Puntuación: ' + score + ' pts';
-                    
-                    // Asignar la puntuación al campo oculto del formulario
-                    puntuacionInput.value = score;
-
-                    // Mostrar el botón de guardar
-                    saveButton.style.display = 'block';
-                }
-            }
-            update();
-        }
-        
     </script>
 
 </body>
 
-</html>
