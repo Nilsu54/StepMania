@@ -592,6 +592,7 @@ body.fondo10 {
     height: 40px;
     margin-top: 25px;
     display: none;
+    margin-left: 35%;
 }
 .bloque-de-flechas{
     display: flex;

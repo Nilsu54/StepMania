@@ -1,4 +1,5 @@
 <?php
+
 // Recuperar las variables de la URL utilizando el método GET
 $imagenjuego = isset($_GET['imagenjuego']) ? htmlspecialchars($_GET['imagenjuego']) : 'img/noimatge.jpg';
 $titulo_juego = isset($_GET['titulo_cancion']) ? htmlspecialchars($_GET['titulo_cancion']) : 'Título desconocido';
@@ -87,10 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <audio id="audio" controls autoplay style="display: none;">
-        <source src="<?php echo htmlspecialchars($audiotrack); ?>" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+    
 
     <div class="dropdown">
         <button class="dropbtn">Fondo</button>
@@ -135,6 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="bloque-derecho">
+        <audio id="audio" controls autoplay style="display: none ">
+        <source src="<?php echo htmlspecialchars($audiotrack); ?>" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
         <span id="score-display">0 pts</span>
 
             <!-- Botón para mostrar el formulario -->
