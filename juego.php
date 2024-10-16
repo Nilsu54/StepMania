@@ -119,12 +119,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="separar"><strong>Artista:</strong> <?php echo htmlspecialchars($artistajuego); ?></p>
         </div>
         <div class="bloque-central">
-            <h1 class="titulo-joc">¡Joel supera a tu ex!</h1>
+            <h1 class="titulo-joc">¡Rompe la pista!</h1>
             <div class="bloque-de-flechas">
-                <div class="bloque-flecha"><img  class="flecha-esquerra" src="/img/flecha-esquerra.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-adalt" src="/img/flecha-adalt.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-abaix" src="/img/flecha-abaix.jpg"></div>
-                <div class="bloque-flecha"><img class="flecha-dreta" src="/img/flecha-dreta.jpg"></div>
+                <div class="bloque-flecha"><img  class="flecha-esquerra" src="uploads/flecha-esquerra.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-adalt" src="uploads/flecha-adalt.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-abaix" src="uploads/flecha-abaix.jpg"></div>
+                <div class="bloque-flecha"><img class="flecha-dreta" src="uploads/flecha-dreta.jpg"></div>
             </div>
 
             <div class="barra-progreso">

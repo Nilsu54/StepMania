@@ -118,24 +118,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_cancion'])) {
         let idCancion = '';     // Variable para almacenar el ID de la canción
         let rutaAudio = '';     // Variable para almacenar la ruta del audio
 
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                data.sort((a, b) => a.titulo_cancion.localeCompare(b.titulo_cancion));
-                const listaCanciones = document.querySelector('.lista-canciones');
-                listaCanciones.innerHTML = '';
+        fetch('data.json', { cache: 'no-store' })
+    .then(response => response.json())
+    .then(data => {
+        data.sort((a, b) => a.titulo_cancion.localeCompare(b.titulo_cancion));
+        const listaCanciones = document.querySelector('.lista-canciones');
+        listaCanciones.innerHTML = '';
 
-                data.forEach(cancion => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <a href="javascript:void(0);" onclick="selectSong('${cancion.Cancion}', '${cancion['Foto cancion']}', '${cancion.titulo_cancion}', '${cancion.Artista}', '${cancion.ID}')">
-                            <img src="uploads/${cancion['Foto cancion']}" alt="${cancion.titulo_cancion}" class="img-cancion">
-                            <span class="titulo-cancion">${cancion.titulo_cancion}</span>
-                        </a>
-                    `;
-                    listaCanciones.appendChild(li);
-                });
-            });
+        data.forEach(cancion => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <a href="javascript:void(0);" onclick="selectSong('${cancion.Cancion}', '${cancion['Foto cancion']}', '${cancion.titulo_cancion}', '${cancion.Artista}', '${cancion.ID}')">
+                    <img src="uploads/${cancion['Foto cancion']}" alt="${cancion.titulo_cancion}" class="img-cancion">
+                    <span class="titulo-cancion">${cancion.titulo_cancion}</span>
+                </a>
+            `;
+            listaCanciones.appendChild(li);
+        });
+    });
 
         function selectSong(mp3File, imgFile, title, artist, id) {
             if (currentAudio) {

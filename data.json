@@ -16,14 +16,6 @@
         "Cancion": "The Black Eyed Peas - Meet Me Halfway (Official Music Video).mp3"
     },
     {
-        "ID": "1670411d17b9ca",
-        "titulo_cancion": "Start Me Up",
-        "Artista": "Rolling sthones",
-        "Foto cancion": "cancion5.jfif",
-        "txt juego": "prova.txt.txt",
-        "Cancion": "The Rolling Stones - Start Me Up - Official Promo.mp3"
-    },
-    {
         "ID": "167052cc21ea01",
         "titulo_cancion": "Memorias",
         "Artista": "Mora",
@@ -57,10 +49,18 @@
     },
     {
         "ID": "1670e897e5169e",
-        "titulo_cancion": "                                           Duracion cortaa",
+        "titulo_cancion": "                                           Duracion corta",
         "Artista": "test",
         "Foto cancion": "flecha-adalt.jpg",
         "txt juego": "joc_fitxer_llarg_50_l\u00ednies.txt",
         "Cancion": "Sonido de Pedo gracioso.mp3"
+    },
+    {
+        "ID": "1670fcaa0e6722",
+        "titulo_cancion": "Start Me Up",
+        "Artista": "rolling sthines",
+        "Foto cancion": "cancion5.jfif",
+        "txt juego": "joc_fitxer_llarg_50_l\u00ednies.txt",
+        "Cancion": "The Rolling Stones - Start Me Up - Official Promo.mp3"
     }
 ]

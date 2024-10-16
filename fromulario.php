@@ -153,8 +153,5 @@ if (
     $json = json_encode($Cançons, JSON_PRETTY_PRINT);
     // Guardar el nuevo contenido JSON en el archivo "data.json"
     file_put_contents("data.json", $json);
-} else {
-    // Si hubo un error al mover los archivos, muestra un mensaje de error
-    echo "Error al mover los archivos.";
-}
+} 
 ?>
